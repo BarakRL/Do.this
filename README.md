@@ -24,26 +24,27 @@ Do.this { this in
 }.then { this in
     
     //if an error happened, pass it in the done callback (you can still pass a result)
-    //if you pass an error, the chain will break (see catch and finally below).
+    //if you pass an error, the chain will break (see catch and finally below)
     let error: SomeError.bummer
-    this.done(result: this.index, error: error)
+    this.done(result: someResult, error: error)
     
 }.then (on: DispatchQueue.global(qos: .background)) { this in
     
     //this will execute in a background queue
     print("on: \(DispatchQueue.currentLabel)")
-    this.done(result: this.index)
+    this.done(result: someResult)
     
 }.then (on: .main) { this in
     
     //this will be execute in the main queue
-    //if you dont specify a queue, this will be executed on the current (last used) queue.
+    //if you dont specify a queue, this will be executed on the current (last used) queue
     print("on: \(DispatchQueue.currentLabel)")
-    this.done(result: this.index)
+    this.done(result: someResult)
     
 }.catch { this in
     
     //catch an error, this will point to the step that triggered the error
+	//every this has an index property and an optional name property
     print("catched error: \(this.error) from \(this.name ?? String(this.index))")
     
 }.finally { this in
