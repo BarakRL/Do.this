@@ -13,24 +13,65 @@ class DoTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        
+        let exp = expectation(description: "test")
+        
+        Do.this { (_, done) in
+            
+            print("Do.this")
+            done(nil, nil)
+            
+        }.then { (result, done) in
+            
+            print("then with: \(result)")
+            done("result1", nil)
+            
+        }.then { (result, done) in
+            
+            print("then with: \(result)")
+            done("result2", nil)
+            
+        }.then { (result, done) in
+            
+            print("then with: \(result)")
+            let error: Error? = nil //NSError(domain: "error4", code: 4, userInfo: nil)
+            done("result3", error)
+            
+        }.then (on: DispatchQueue.global(qos: .background)) { (result, done) in
+            
+            print("then with: \(result) on: \(DispatchQueue.currentLabel)")
+            done("result4", nil)
+            
+        }.then (on: .main) { (result, done) in
+            
+            print("then with: \(result) on: \(DispatchQueue.currentLabel)")
+            done("result5", nil)
+            
+        }.catch { (from, error) in
+            
+            print("catched error: \(error) from \(from.name ?? String(from.index))")
+            
+        }.finally { (result) in
+            
+            print("finally: \(result)")
+            exp.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 25.0) { (error) -> Void in
+            XCTAssert(error == nil, "test took too long, error: \(error)")
         }
     }
-    
+}
+
+extension DispatchQueue {
+    class var currentLabel: String? {
+        return String(validatingUTF8: __dispatch_queue_get_label(nil))
+    }
 }

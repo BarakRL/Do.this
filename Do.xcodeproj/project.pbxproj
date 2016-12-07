@@ -10,6 +10,7 @@
 		E58A01B81DF6025500BDF0DB /* Do.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A01AE1DF6025500BDF0DB /* Do.framework */; };
 		E58A01BD1DF6025500BDF0DB /* DoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A01BC1DF6025500BDF0DB /* DoTests.swift */; };
 		E58A01BF1DF6025500BDF0DB /* Do.h in Headers */ = {isa = PBXBuildFile; fileRef = E58A01B11DF6025500BDF0DB /* Do.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E58A01C91DF6027000BDF0DB /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A01C81DF6027000BDF0DB /* Do.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		E58A01B71DF6025500BDF0DB /* DoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58A01BC1DF6025500BDF0DB /* DoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTests.swift; sourceTree = "<group>"; };
 		E58A01BE1DF6025500BDF0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E58A01C81DF6027000BDF0DB /* Do.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Do.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				E58A01B11DF6025500BDF0DB /* Do.h */,
 				E58A01B21DF6025500BDF0DB /* Info.plist */,
+				E58A01C81DF6027000BDF0DB /* Do.swift */,
 			);
 			path = Do;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 					E58A01AD1DF6025500BDF0DB = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = T9FT44P7KA;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					E58A01B61DF6025500BDF0DB = {
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58A01C91DF6027000BDF0DB /* Do.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +327,7 @@
 		E58A01C31DF6025500BDF0DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T9FT44P7KA;
@@ -331,9 +337,10 @@
 				INFOPLIST_FILE = Do/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.Do;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +348,7 @@
 		E58A01C41DF6025500BDF0DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T9FT44P7KA;
@@ -350,7 +358,7 @@
 				INFOPLIST_FILE = Do/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.Do;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -360,6 +368,7 @@
 		E58A01C61DF6025500BDF0DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = T9FT44P7KA;
 				INFOPLIST_FILE = DoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +381,7 @@
 		E58A01C71DF6025500BDF0DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = T9FT44P7KA;
 				INFOPLIST_FILE = DoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
