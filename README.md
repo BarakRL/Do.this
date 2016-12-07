@@ -10,8 +10,10 @@ Do.this { this in
     //do stuff
     this.done(result: someResult)
     
-}.then { this in
+}.then (name: "result step") { this in
     
+	//you can give this a name (optional)
+	
     //you can access the previous result if needed:
     print("previousResult: \(this.previousResult)")
     

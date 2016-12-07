@@ -28,10 +28,10 @@ class DoTests: XCTestCase {
             print("Do.this")
             this.done()
             
-        }.then { this in
+        }.then (name: "result step") { this in
             
             print("previousResult: \(this.previousResult)")
-            this.done(result: this.index)
+            this.done(result: this.name)
             
         }.then { this in
             
