@@ -34,7 +34,7 @@ Do.this { this in
     
     //if an error happened, pass it in the done callback (you can still pass a result)
     //if you pass an error, the chain will break (see catch and finally below)
-    let error: SomeError.bummer
+    let error = SomeError.bummer
     this.done(result: someResult, error: error)
     
 }.then (on: DispatchQueue.global(qos: .background)) { this in
