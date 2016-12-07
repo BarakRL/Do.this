@@ -12,14 +12,23 @@ Do.this { this in
     
 }.then (name: "result step") { this in
     
-	//you can give this a name (optional)
-	
-    //you can access the previous result if needed:
-    print("previousResult: \(this.previousResult)")
-    
     //do more stuff
-    //result is optional
-    this.done()
+	
+	//every this has an index property and an optional name property
+	//which can be useful for debugging and error handling
+	print("this: \(this.name ?? String(this.index))")
+		
+    //you can also access the previous result if needed:
+    print("previousResult: \(this.previousResult)")
+	
+	//if you're doing anything async, don't forget to call done()	
+	DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+     	
+		//async stuff
+		
+	    //btw, result is optional
+	    this.done()
+    }    
     
 }.then { this in
     
@@ -43,8 +52,7 @@ Do.this { this in
     
 }.catch { this in
     
-    //catch an error, this will point to the step that triggered the error
-	//every this has an index property and an optional name property
+    //catch an error, this will point to the step that triggered the error	
     print("catched error: \(this.error) from \(this.name ?? String(this.index))")
     
 }.finally { this in

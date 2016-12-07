@@ -31,7 +31,10 @@ class DoTests: XCTestCase {
         }.then (name: "result step") { this in
             
             print("previousResult: \(this.previousResult)")
-            this.done(result: this.name)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                this.done(result: this.name)
+            }
             
         }.then { this in
             
