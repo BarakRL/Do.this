@@ -11,23 +11,21 @@ import Foundation
 
 public class Do {
     
-    public typealias DoThisClosure = ((Do) -> Void)
-    public typealias CatchErrorClosure = ((Do) -> Void)
-    public typealias FinallyClosure = ((Do) -> Void)
+    public typealias ThisClosure = ((Do) -> Void)
     
     private(set) var name: String?
     private(set) var index: Int
     private var onQueue: DispatchQueue = .main
-    private var doThis: DoThisClosure
+    private var doThis: ThisClosure
     
     private(set) var error: Error?
     private(set) var previousResult: Any?
     private var next: Do?
 
-    private var catchThis: CatchErrorClosure?
-    private var finallyThis: FinallyClosure?
+    private var catchThis: ThisClosure?
+    private var finallyThis: ThisClosure?
     
-    private init(name: String?, on queue: DispatchQueue, index: Int, do this: @escaping DoThisClosure) {
+    private init(name: String?, on queue: DispatchQueue, index: Int, do this: @escaping ThisClosure) {
         self.name = name
         self.index = index
         self.onQueue = queue
@@ -35,7 +33,7 @@ public class Do {
     }
     
     @discardableResult
-    static func this(name: String? = nil, on queue: DispatchQueue = .main, do this: @escaping DoThisClosure) -> Do {
+    static func this(name: String? = nil, on queue: DispatchQueue = .main, do this: @escaping ThisClosure) -> Do {
         
         let first = Do(name: name, on: queue, index: 0, do: this)
         queue.async {
@@ -75,7 +73,7 @@ public class Do {
         }
     }
     
-    func then(name: String? = nil, on queue: DispatchQueue? = nil, do this: @escaping DoThisClosure) -> Do {
+    func then(name: String? = nil, on queue: DispatchQueue? = nil, do this: @escaping ThisClosure) -> Do {
         
         guard self.catchThis == nil else {
             fatalError("Can't call next() after catch()")
@@ -90,13 +88,13 @@ public class Do {
     }
     
     @discardableResult
-    func `catch`(this: @escaping CatchErrorClosure) -> Do {
+    func `catch`(this: @escaping ThisClosure) -> Do {
         
         self.catchThis = this
         return self
     }
     
-    func finally(this: @escaping FinallyClosure) {
+    func finally(this: @escaping ThisClosure) {
         
         self.finallyThis = this
     }
