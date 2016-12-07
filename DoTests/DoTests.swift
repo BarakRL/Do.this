@@ -23,44 +23,44 @@ class DoTests: XCTestCase {
         
         let exp = expectation(description: "test")
         
-        Do.this { (_, done) in
+        Do.this { this in
             
             print("Do.this")
-            done(nil, nil)
+            this.done()
             
-        }.then { (result, done) in
+        }.then { this in
             
-            print("then with: \(result)")
-            done("result1", nil)
+            print("previousResult: \(this.previousResult)")
+            this.done(result: this.index)
             
-        }.then { (result, done) in
+        }.then { this in
             
-            print("then with: \(result)")
-            done("result2", nil)
+            print("previousResult: \(this.previousResult)")
+            this.done(result: this.index, error: nil)
             
-        }.then { (result, done) in
+        }.then { this in
             
-            print("then with: \(result)")
+            print("previousResult: \(this.previousResult)")
             let error: Error? = nil //NSError(domain: "error4", code: 4, userInfo: nil)
-            done("result3", error)
+            this.done(result: this.index, error: error)
             
-        }.then (on: DispatchQueue.global(qos: .background)) { (result, done) in
+        }.then (on: DispatchQueue.global(qos: .background)) { this in
             
-            print("then with: \(result) on: \(DispatchQueue.currentLabel)")
-            done("result4", nil)
+            print("previousResult: \(this.previousResult) on: \(DispatchQueue.currentLabel)")
+            this.done(result: this.index)
             
-        }.then (on: .main) { (result, done) in
+        }.then (on: .main) { this in
             
-            print("then with: \(result) on: \(DispatchQueue.currentLabel)")
-            done("result5", nil)
+            print("previousResult: \(this.previousResult) on: \(DispatchQueue.currentLabel)")
+            this.done(result: this.index)
             
-        }.catch { (from, error) in
+        }.catch { this in
             
-            print("catched error: \(error) from \(from.name ?? String(from.index))")
+            print("catched error: \(this.error) from \(this.name ?? String(this.index))")
             
-        }.finally { (result) in
+        }.finally { this in
             
-            print("finally: \(result)")
+            print("finally (previousResult: \(this.previousResult))")
             exp.fulfill()
         }
         

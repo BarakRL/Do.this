@@ -11,16 +11,17 @@ import Foundation
 
 public class Do {
     
-    public typealias DoneClosure = ((Any?, Error?) -> Void)
-    public typealias DoThisClosure = ((Any?, DoneClosure) -> Void)
-    public typealias CatchErrorClosure = ((Do, Error) -> Void)
-    public typealias FinallyClosure = ((Any?) -> Void)
+    public typealias DoThisClosure = ((Do) -> Void)
+    public typealias CatchErrorClosure = ((Do) -> Void)
+    public typealias FinallyClosure = ((Do) -> Void)
     
     private(set) var name: String?
     private(set) var index: Int
     private var onQueue: DispatchQueue = .main
     private var doThis: DoThisClosure
     
+    private(set) var error: Error?
+    private(set) var previousResult: Any?
     private var next: Do?
 
     private var catchThis: CatchErrorClosure?
@@ -38,7 +39,7 @@ public class Do {
         
         let first = Do(name: name, on: queue, index: 0, do: this)
         queue.async {
-            first.doThis(nil, first.done)
+            first.doThis(first)
         }
         
         return first
@@ -55,17 +56,22 @@ public class Do {
         //if error
         if let error = error {
             
-            lastDo.catchThis?(self, error)
-            lastDo.finallyThis?(result)
+            self.error = error
+            lastDo.catchThis?(self)
+            
+            lastDo.previousResult = result
+            lastDo.finallyThis?(lastDo)
         }
         else if let next = self.next {
             
             next.onQueue.async {
-                next.doThis(result, next.done)
+                next.previousResult = result
+                next.doThis(next)
             }
         }
         else {
-            lastDo.finallyThis?(result)
+            lastDo.previousResult = result
+            lastDo.finallyThis?(lastDo)
         }
     }
     
