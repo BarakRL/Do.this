@@ -1,9 +1,9 @@
 # Do.this
 
-Do.this is a Swift 3 quick async helper inspired by node.js Async.
+Do.this is a Swift 3 quick async helper inspired by node.js Async
 
 ### Usage:
-#
+
 ```swift
 Do.this { this in
     
@@ -63,7 +63,14 @@ Do.this { this in
 }
 ```
 
-License
-----
+## Requirements
 
-MIT
+Swift 3
+
+## Author
+
+Barak Harel, dev@barakharel.com
+
+## License
+
+Do.this is available under the MIT license. See the LICENSE file for more info.
