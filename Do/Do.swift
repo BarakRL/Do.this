@@ -13,13 +13,13 @@ public class Do {
     
     public typealias ThisClosure = ((Do) -> Void)
     
-    private(set) var name: String?
-    private(set) var index: Int
+    public private(set) var name: String?
+    public private(set) var index: Int
     private var onQueue: DispatchQueue = .main
     private var doThis: ThisClosure
     
-    private(set) var error: Error?
-    private(set) var previousResult: Any?
+    public private(set) var error: Error?
+    public private(set) var previousResult: Any?
     private var next: Do?
 
     private var catchThis: ThisClosure?
@@ -33,7 +33,7 @@ public class Do {
     }
     
     @discardableResult
-    static func this(name: String? = nil, on queue: DispatchQueue = .main, do this: @escaping ThisClosure) -> Do {
+    public static func this(name: String? = nil, on queue: DispatchQueue = .main, do this: @escaping ThisClosure) -> Do {
         
         let first = Do(name: name, on: queue, index: 0, do: this)
         queue.async {
@@ -49,7 +49,7 @@ public class Do {
     /// - Parameters:
     ///   - error: error if any, will continue to the catch and finally closures
     ///   - result: result (optional) passed to the next then or finally closures
-    func done(result: Any? = nil, error: Error? = nil) {
+    public func done(result: Any? = nil, error: Error? = nil) {
         
         //if error
         if let error = error {
@@ -73,7 +73,7 @@ public class Do {
         }
     }
     
-    func then(name: String? = nil, on queue: DispatchQueue? = nil, do this: @escaping ThisClosure) -> Do {
+    public func then(name: String? = nil, on queue: DispatchQueue? = nil, do this: @escaping ThisClosure) -> Do {
         
         guard self.catchThis == nil else {
             fatalError("Can't call next() after catch()")
@@ -88,13 +88,13 @@ public class Do {
     }
     
     @discardableResult
-    func `catch`(this: @escaping ThisClosure) -> Do {
+    public func `catch`(this: @escaping ThisClosure) -> Do {
         
         self.catchThis = this
         return self
     }
     
-    func finally(this: @escaping ThisClosure) {
+    public func finally(this: @escaping ThisClosure) {
         
         self.finallyThis = this
     }
