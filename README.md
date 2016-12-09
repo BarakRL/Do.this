@@ -67,9 +67,18 @@ Do.this { this in
 
 Swift 3
 
+## Installation
+
+Do.this is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "Do.this"
+```
+
 ## Author
 
-Barak Harel, dev@barakharel.com
+Barak Harel
 
 ## License
 
