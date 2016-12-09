@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/BarakRL/Do.this.git", :tag => "#{s.version}" }
-  s.source_files  = "Classes", "Do/**/*.{swift}"
+  s.source_files  = "Classes", "DoThis/**/*.{swift}"
   s.module_name	 = 'DoThis'
 
 end
