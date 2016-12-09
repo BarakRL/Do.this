@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E58A01B81DF6025500BDF0DB /* Do.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A01AE1DF6025500BDF0DB /* Do.framework */; };
+		E58A01B81DF6025500BDF0DB /* DoThis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A01AE1DF6025500BDF0DB /* DoThis.framework */; };
 		E58A01BD1DF6025500BDF0DB /* DoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A01BC1DF6025500BDF0DB /* DoTests.swift */; };
-		E58A01BF1DF6025500BDF0DB /* Do.h in Headers */ = {isa = PBXBuildFile; fileRef = E58A01B11DF6025500BDF0DB /* Do.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E58A01C91DF6027000BDF0DB /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A01C81DF6027000BDF0DB /* Do.swift */; };
+		E58A01BF1DF6025500BDF0DB /* DoThis.h in Headers */ = {isa = PBXBuildFile; fileRef = E58A01B11DF6025500BDF0DB /* DoThis.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E58A01C91DF6027000BDF0DB /* DoThis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A01C81DF6027000BDF0DB /* DoThis.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,13 +26,13 @@
 /* Begin PBXFileReference section */
 		E56C564C1DFA23D500507133 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E56C564D1DFA23D500507133 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E58A01AE1DF6025500BDF0DB /* Do.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Do.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E58A01B11DF6025500BDF0DB /* Do.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Do.h; sourceTree = "<group>"; };
+		E58A01AE1DF6025500BDF0DB /* DoThis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DoThis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E58A01B11DF6025500BDF0DB /* DoThis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoThis.h; sourceTree = "<group>"; };
 		E58A01B21DF6025500BDF0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E58A01B71DF6025500BDF0DB /* DoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58A01BC1DF6025500BDF0DB /* DoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTests.swift; sourceTree = "<group>"; };
 		E58A01BE1DF6025500BDF0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E58A01C81DF6027000BDF0DB /* Do.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Do.swift; sourceTree = "<group>"; };
+		E58A01C81DF6027000BDF0DB /* DoThis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoThis.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58A01B81DF6025500BDF0DB /* Do.framework in Frameworks */,
+				E58A01B81DF6025500BDF0DB /* DoThis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +57,7 @@
 		E58A01A41DF6025500BDF0DB = {
 			isa = PBXGroup;
 			children = (
-				E58A01B01DF6025500BDF0DB /* Do */,
+				E58A01B01DF6025500BDF0DB /* DoThis */,
 				E58A01BB1DF6025500BDF0DB /* DoTests */,
 				E56C564C1DFA23D500507133 /* LICENSE */,
 				E56C564D1DFA23D500507133 /* README.md */,
@@ -68,20 +68,20 @@
 		E58A01AF1DF6025500BDF0DB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E58A01AE1DF6025500BDF0DB /* Do.framework */,
+				E58A01AE1DF6025500BDF0DB /* DoThis.framework */,
 				E58A01B71DF6025500BDF0DB /* DoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E58A01B01DF6025500BDF0DB /* Do */ = {
+		E58A01B01DF6025500BDF0DB /* DoThis */ = {
 			isa = PBXGroup;
 			children = (
-				E58A01B11DF6025500BDF0DB /* Do.h */,
+				E58A01B11DF6025500BDF0DB /* DoThis.h */,
 				E58A01B21DF6025500BDF0DB /* Info.plist */,
-				E58A01C81DF6027000BDF0DB /* Do.swift */,
+				E58A01C81DF6027000BDF0DB /* DoThis.swift */,
 			);
-			path = Do;
+			path = DoThis;
 			sourceTree = "<group>";
 		};
 		E58A01BB1DF6025500BDF0DB /* DoTests */ = {
@@ -100,16 +100,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58A01BF1DF6025500BDF0DB /* Do.h in Headers */,
+				E58A01BF1DF6025500BDF0DB /* DoThis.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E58A01AD1DF6025500BDF0DB /* Do */ = {
+		E58A01AD1DF6025500BDF0DB /* DoThis */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E58A01C21DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "Do" */;
+			buildConfigurationList = E58A01C21DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "DoThis" */;
 			buildPhases = (
 				E58A01A91DF6025500BDF0DB /* Sources */,
 				E58A01AA1DF6025500BDF0DB /* Frameworks */,
@@ -120,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = Do;
+			name = DoThis;
 			productName = Do;
-			productReference = E58A01AE1DF6025500BDF0DB /* Do.framework */;
+			productReference = E58A01AE1DF6025500BDF0DB /* DoThis.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E58A01B61DF6025500BDF0DB /* DoTests */ = {
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E58A01A81DF6025500BDF0DB /* Build configuration list for PBXProject "Do" */;
+			buildConfigurationList = E58A01A81DF6025500BDF0DB /* Build configuration list for PBXProject "DoThis" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -178,7 +178,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E58A01AD1DF6025500BDF0DB /* Do */,
+				E58A01AD1DF6025500BDF0DB /* DoThis */,
 				E58A01B61DF6025500BDF0DB /* DoTests */,
 			);
 		};
@@ -206,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58A01C91DF6027000BDF0DB /* Do.swift in Sources */,
+				E58A01C91DF6027000BDF0DB /* DoThis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +223,7 @@
 /* Begin PBXTargetDependency section */
 		E58A01BA1DF6025500BDF0DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E58A01AD1DF6025500BDF0DB /* Do */;
+			target = E58A01AD1DF6025500BDF0DB /* DoThis */;
 			targetProxy = E58A01B91DF6025500BDF0DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -270,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -317,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -338,10 +338,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Do/Info.plist;
+				INFOPLIST_FILE = DoThis/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do.this;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -359,10 +359,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Do/Info.plist;
+				INFOPLIST_FILE = DoThis/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do.this;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -398,7 +398,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E58A01A81DF6025500BDF0DB /* Build configuration list for PBXProject "Do" */ = {
+		E58A01A81DF6025500BDF0DB /* Build configuration list for PBXProject "DoThis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E58A01C01DF6025500BDF0DB /* Debug */,
@@ -407,13 +407,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E58A01C21DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "Do" */ = {
+		E58A01C21DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "DoThis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E58A01C31DF6025500BDF0DB /* Debug */,
 				E58A01C41DF6025500BDF0DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E58A01C51DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "DoTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +423,7 @@
 				E58A01C71DF6025500BDF0DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,6 +1,6 @@
 //
-//  Do.h
-//  Do
+//  DoThis.h
+//  Do.this
 //
 //  Created by Barak Harel on 05/12/2016.
 //  Copyright © 2016 Barak Harel. All rights reserved.

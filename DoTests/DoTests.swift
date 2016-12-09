@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Do
+@testable import DoThis
 
 class DoTests: XCTestCase {
     

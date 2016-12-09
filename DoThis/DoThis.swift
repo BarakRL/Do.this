@@ -1,6 +1,6 @@
 //
-//  Do.swift
-//  Do
+//  DoThis.swift
+//  Do.this
 //
 //  Created by Barak Harel on 05/12/2016.
 //  Copyright © 2016 Barak Harel. All rights reserved.
@@ -9,38 +9,42 @@
 
 import Foundation
 
+public typealias ThisClosure = ((DoThis) -> Void)
+
 public class Do {
     
-    public typealias ThisClosure = ((Do) -> Void)
-    
-    public private(set) var name: String?
-    public private(set) var index: Int
-    private var onQueue: DispatchQueue = .main
-    private var doThis: ThisClosure
-    
-    public private(set) var error: Error?
-    public private(set) var previousResult: Any?
-    private var next: Do?
-
-    private var catchThis: ThisClosure?
-    private var finallyThis: ThisClosure?
-    
-    private init(name: String?, on queue: DispatchQueue, index: Int, do this: @escaping ThisClosure) {
-        self.name = name
-        self.index = index
-        self.onQueue = queue
-        self.doThis = this
-    }
-    
     @discardableResult
-    public static func this(name: String? = nil, on queue: DispatchQueue = .main, do this: @escaping ThisClosure) -> Do {
+    public static func this(name: String? = nil, on queue: DispatchQueue = .main, do this: @escaping ThisClosure) -> DoThis {
         
-        let first = Do(name: name, on: queue, index: 0, do: this)
+        let first = DoThis(name: name, on: queue, index: 0, do: this)
         queue.async {
             first.doThis(first)
         }
         
         return first
+    }
+
+}
+
+public class DoThis {
+    
+    public private(set) var name: String?
+    public private(set) var index: Int
+    fileprivate var onQueue: DispatchQueue = .main
+    fileprivate var doThis: ThisClosure
+    
+    public fileprivate(set) var error: Error?
+    public fileprivate(set) var previousResult: Any?
+    fileprivate var next: DoThis?
+
+    fileprivate var catchThis: ThisClosure?
+    fileprivate var finallyThis: ThisClosure?
+    
+    fileprivate init(name: String?, on queue: DispatchQueue, index: Int, do this: @escaping ThisClosure) {
+        self.name = name
+        self.index = index
+        self.onQueue = queue
+        self.doThis = this
     }
     
     
@@ -73,7 +77,7 @@ public class Do {
         }
     }
     
-    public func then(name: String? = nil, on queue: DispatchQueue? = nil, do this: @escaping ThisClosure) -> Do {
+    public func then(name: String? = nil, on queue: DispatchQueue? = nil, do this: @escaping ThisClosure) -> DoThis {
         
         guard self.catchThis == nil else {
             fatalError("Can't call next() after catch()")
@@ -81,14 +85,14 @@ public class Do {
         
         let queue = queue ?? self.onQueue
         
-        let next = Do(name: name, on: queue, index: self.index + 1, do: this)
+        let next = DoThis(name: name, on: queue, index: self.index + 1, do: this)
         self.next = next
         
         return next
     }
     
     @discardableResult
-    public func `catch`(this: @escaping ThisClosure) -> Do {
+    public func `catch`(this: @escaping ThisClosure) -> DoThis {
         
         self.catchThis = this
         return self
@@ -99,7 +103,7 @@ public class Do {
         self.finallyThis = this
     }
     
-    private var lastDo: Do {
+    private var lastDo: DoThis {
         
         var last = self
         while let next = last.next {

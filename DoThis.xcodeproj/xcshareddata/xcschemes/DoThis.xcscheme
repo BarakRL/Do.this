@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E58A01AD1DF6025500BDF0DB"
-               BuildableName = "Do.framework"
-               BlueprintName = "Do"
-               ReferencedContainer = "container:Do.xcodeproj">
+               BuildableName = "DoThis.framework"
+               BlueprintName = "DoThis"
+               ReferencedContainer = "container:DoThis.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "E58A01B61DF6025500BDF0DB"
                BuildableName = "DoTests.xctest"
                BlueprintName = "DoTests"
-               ReferencedContainer = "container:Do.xcodeproj">
+               ReferencedContainer = "container:DoThis.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E58A01AD1DF6025500BDF0DB"
-            BuildableName = "Do.framework"
-            BlueprintName = "Do"
-            ReferencedContainer = "container:Do.xcodeproj">
+            BuildableName = "DoThis.framework"
+            BlueprintName = "DoThis"
+            ReferencedContainer = "container:DoThis.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E58A01AD1DF6025500BDF0DB"
-            BuildableName = "Do.framework"
-            BlueprintName = "Do"
-            ReferencedContainer = "container:Do.xcodeproj">
+            BuildableName = "DoThis.framework"
+            BlueprintName = "DoThis"
+            ReferencedContainer = "container:DoThis.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E58A01AD1DF6025500BDF0DB"
-            BuildableName = "Do.framework"
-            BlueprintName = "Do"
-            ReferencedContainer = "container:Do.xcodeproj">
+            BuildableName = "DoThis.framework"
+            BlueprintName = "DoThis"
+            ReferencedContainer = "container:DoThis.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
