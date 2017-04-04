@@ -30,6 +30,11 @@ Do.this { this in
 	    this.done()
     }    
     
+}.then (after: 2) { this in
+
+    //you can also add a delay directly
+    this.done()
+
 }.then { this in
     
     //if an error happened, pass it in the done callback (you can still pass a result)
@@ -40,6 +45,7 @@ Do.this { this in
 }.then (on: DispatchQueue.global(qos: .background)) { this in
     
     //this will execute in a background queue
+    //(+you can combine this with a delay)
     print("on: \(DispatchQueue.currentLabel)")
     this.done(result: someResult)
     

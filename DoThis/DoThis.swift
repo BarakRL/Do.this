@@ -14,11 +14,18 @@ public typealias ThisClosure = ((DoThis) -> Void)
 public class Do {
     
     @discardableResult
-    public static func this(name: String? = nil, on queue: DispatchQueue = .main, do this: @escaping ThisClosure) -> DoThis {
+    public static func this(name: String? = nil, on queue: DispatchQueue = .main, after delay: TimeInterval = 0, do this: @escaping ThisClosure) -> DoThis {
         
-        let first = DoThis(name: name, on: queue, index: 0, do: this)
-        queue.async {
-            first.doThis(first)
+        let first = DoThis(name: name, on: queue, after: delay, index: 0, do: this)
+        if delay > 0 {
+            queue.asyncAfter(deadline: .now() + delay, execute: { 
+                first.doThis(first)
+            })
+        }
+        else {
+            queue.async {
+                first.doThis(first)
+            }
         }
         
         return first
@@ -30,6 +37,7 @@ public class DoThis {
     
     public private(set) var name: String?
     public private(set) var index: Int
+    fileprivate var delay: TimeInterval = 0
     fileprivate var onQueue: DispatchQueue = .main
     fileprivate var doThis: ThisClosure
     
@@ -40,10 +48,11 @@ public class DoThis {
     fileprivate var catchThis: ThisClosure?
     fileprivate var finallyThis: ThisClosure?
     
-    fileprivate init(name: String?, on queue: DispatchQueue, index: Int, do this: @escaping ThisClosure) {
+    fileprivate init(name: String?, on queue: DispatchQueue, after delay: TimeInterval, index: Int, do this: @escaping ThisClosure) {
         self.name = name
         self.index = index
         self.onQueue = queue
+        self.delay = delay
         self.doThis = this
     }
     
@@ -66,9 +75,17 @@ public class DoThis {
         }
         else if let next = self.next {
             
-            next.onQueue.async {
-                next.previousResult = result
-                next.doThis(next)
+            if next.delay > 0 {
+                next.onQueue.asyncAfter(deadline: .now() + next.delay, execute: {
+                    next.previousResult = result
+                    next.doThis(next)
+                })
+            }
+            else {
+                next.onQueue.async {
+                    next.previousResult = result
+                    next.doThis(next)
+                }
             }
         }
         else {
@@ -77,7 +94,7 @@ public class DoThis {
         }
     }
     
-    public func then(name: String? = nil, on queue: DispatchQueue? = nil, do this: @escaping ThisClosure) -> DoThis {
+    public func then(name: String? = nil, on queue: DispatchQueue? = nil, after delay: TimeInterval = 0, do this: @escaping ThisClosure) -> DoThis {
         
         guard self.catchThis == nil else {
             fatalError("Can't call next() after catch()")
@@ -85,7 +102,7 @@ public class DoThis {
         
         let queue = queue ?? self.onQueue
         
-        let next = DoThis(name: name, on: queue, index: self.index + 1, do: this)
+        let next = DoThis(name: name, on: queue, after: delay, index: self.index + 1, do: this)
         self.next = next
         
         return next
