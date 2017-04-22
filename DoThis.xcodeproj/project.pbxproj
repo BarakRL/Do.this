@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		E58A01B81DF6025500BDF0DB /* DoThis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A01AE1DF6025500BDF0DB /* DoThis.framework */; };
 		E58A01BD1DF6025500BDF0DB /* DoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A01BC1DF6025500BDF0DB /* DoTests.swift */; };
-		E58A01BF1DF6025500BDF0DB /* DoThis.h in Headers */ = {isa = PBXBuildFile; fileRef = E58A01B11DF6025500BDF0DB /* DoThis.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E58A01C91DF6027000BDF0DB /* DoThis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A01C81DF6027000BDF0DB /* DoThis.swift */; };
+		E971A2341EABB6CA00E1F77C /* DoThis-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E971A2321EABB6CA00E1F77C /* DoThis-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E971A2351EABB6CA00E1F77C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E971A2331EABB6CA00E1F77C /* Info.plist */; };
+		E971A2381EABB6D900E1F77C /* DoThis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E971A2371EABB6D900E1F77C /* DoThis.swift */; };
+		E971A2421EABB70200E1F77C /* DoThis-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E971A2401EABB70200E1F77C /* DoThis-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E971A2461EABB73F00E1F77C /* DoThis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E971A2371EABB6D900E1F77C /* DoThis.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,12 +30,15 @@
 		E56C564C1DFA23D500507133 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E56C564D1DFA23D500507133 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E58A01AE1DF6025500BDF0DB /* DoThis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DoThis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E58A01B11DF6025500BDF0DB /* DoThis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoThis.h; sourceTree = "<group>"; };
-		E58A01B21DF6025500BDF0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E58A01B71DF6025500BDF0DB /* DoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58A01BC1DF6025500BDF0DB /* DoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoTests.swift; sourceTree = "<group>"; };
 		E58A01BE1DF6025500BDF0DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E58A01C81DF6027000BDF0DB /* DoThis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoThis.swift; sourceTree = "<group>"; };
+		E971A2321EABB6CA00E1F77C /* DoThis-iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DoThis-iOS.h"; sourceTree = "<group>"; };
+		E971A2331EABB6CA00E1F77C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E971A2371EABB6D900E1F77C /* DoThis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoThis.swift; sourceTree = "<group>"; };
+		E971A23E1EABB70200E1F77C /* DoThis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DoThis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E971A2401EABB70200E1F77C /* DoThis-macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoThis-macOS.h"; sourceTree = "<group>"; };
+		E971A2411EABB70200E1F77C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,16 +57,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E971A23A1EABB70200E1F77C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		E58A01A41DF6025500BDF0DB = {
 			isa = PBXGroup;
 			children = (
-				E58A01B01DF6025500BDF0DB /* DoThis */,
+				E971A2361EABB6D900E1F77C /* Source */,
+				E971A2311EABB6CA00E1F77C /* DoThis-iOS */,
 				E58A01BB1DF6025500BDF0DB /* DoTests */,
 				E56C564C1DFA23D500507133 /* LICENSE */,
 				E56C564D1DFA23D500507133 /* README.md */,
+				E971A23F1EABB70200E1F77C /* DoThis-macOS */,
 				E58A01AF1DF6025500BDF0DB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,18 +85,9 @@
 			children = (
 				E58A01AE1DF6025500BDF0DB /* DoThis.framework */,
 				E58A01B71DF6025500BDF0DB /* DoTests.xctest */,
+				E971A23E1EABB70200E1F77C /* DoThis.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E58A01B01DF6025500BDF0DB /* DoThis */ = {
-			isa = PBXGroup;
-			children = (
-				E58A01B11DF6025500BDF0DB /* DoThis.h */,
-				E58A01B21DF6025500BDF0DB /* Info.plist */,
-				E58A01C81DF6027000BDF0DB /* DoThis.swift */,
-			);
-			path = DoThis;
 			sourceTree = "<group>";
 		};
 		E58A01BB1DF6025500BDF0DB /* DoTests */ = {
@@ -93,6 +99,32 @@
 			path = DoTests;
 			sourceTree = "<group>";
 		};
+		E971A2311EABB6CA00E1F77C /* DoThis-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E971A2321EABB6CA00E1F77C /* DoThis-iOS.h */,
+				E971A2331EABB6CA00E1F77C /* Info.plist */,
+			);
+			path = "DoThis-iOS";
+			sourceTree = "<group>";
+		};
+		E971A2361EABB6D900E1F77C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E971A2371EABB6D900E1F77C /* DoThis.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		E971A23F1EABB70200E1F77C /* DoThis-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				E971A2401EABB70200E1F77C /* DoThis-macOS.h */,
+				E971A2411EABB70200E1F77C /* Info.plist */,
+			);
+			path = "DoThis-macOS";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -100,16 +132,24 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58A01BF1DF6025500BDF0DB /* DoThis.h in Headers */,
+				E971A2341EABB6CA00E1F77C /* DoThis-iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E971A23B1EABB70200E1F77C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E971A2421EABB70200E1F77C /* DoThis-macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E58A01AD1DF6025500BDF0DB /* DoThis */ = {
+		E58A01AD1DF6025500BDF0DB /* DoThis-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E58A01C21DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "DoThis" */;
+			buildConfigurationList = E58A01C21DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "DoThis-iOS" */;
 			buildPhases = (
 				E58A01A91DF6025500BDF0DB /* Sources */,
 				E58A01AA1DF6025500BDF0DB /* Frameworks */,
@@ -120,7 +160,7 @@
 			);
 			dependencies = (
 			);
-			name = DoThis;
+			name = "DoThis-iOS";
 			productName = Do;
 			productReference = E58A01AE1DF6025500BDF0DB /* DoThis.framework */;
 			productType = "com.apple.product-type.framework";
@@ -143,6 +183,24 @@
 			productReference = E58A01B71DF6025500BDF0DB /* DoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E971A23D1EABB70200E1F77C /* DoThis-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E971A2431EABB70200E1F77C /* Build configuration list for PBXNativeTarget "DoThis-macOS" */;
+			buildPhases = (
+				E971A2391EABB70200E1F77C /* Sources */,
+				E971A23A1EABB70200E1F77C /* Frameworks */,
+				E971A23B1EABB70200E1F77C /* Headers */,
+				E971A23C1EABB70200E1F77C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DoThis-macOS";
+			productName = "DoThis-macOS";
+			productReference = E971A23E1EABB70200E1F77C /* DoThis.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -150,7 +208,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Barak Harel";
 				TargetAttributes = {
 					E58A01AD1DF6025500BDF0DB = {
@@ -162,6 +220,10 @@
 					E58A01B61DF6025500BDF0DB = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = T9FT44P7KA;
+						ProvisioningStyle = Automatic;
+					};
+					E971A23D1EABB70200E1F77C = {
+						CreatedOnToolsVersion = 8.3.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -178,7 +240,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E58A01AD1DF6025500BDF0DB /* DoThis */,
+				E58A01AD1DF6025500BDF0DB /* DoThis-iOS */,
+				E971A23D1EABB70200E1F77C /* DoThis-macOS */,
 				E58A01B61DF6025500BDF0DB /* DoTests */,
 			);
 		};
@@ -189,10 +252,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E971A2351EABB6CA00E1F77C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E58A01B51DF6025500BDF0DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E971A23C1EABB70200E1F77C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -206,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58A01C91DF6027000BDF0DB /* DoThis.swift in Sources */,
+				E971A2381EABB6D900E1F77C /* DoThis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,12 +289,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E971A2391EABB70200E1F77C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E971A2461EABB73F00E1F77C /* DoThis.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		E58A01BA1DF6025500BDF0DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E58A01AD1DF6025500BDF0DB /* DoThis */;
+			target = E58A01AD1DF6025500BDF0DB /* DoThis-iOS */;
 			targetProxy = E58A01B91DF6025500BDF0DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -247,6 +326,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -300,6 +380,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -338,11 +419,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DoThis/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DoThis-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do.this;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DoThis;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -359,11 +440,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DoThis/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DoThis-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do.this;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DoThis;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -395,6 +476,52 @@
 			};
 			name = Release;
 		};
+		E971A2441EABB70200E1F77C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "DoThis-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do.this;
+				PRODUCT_NAME = DoThis;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E971A2451EABB70200E1F77C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "DoThis-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barakharel.do.this;
+				PRODUCT_NAME = DoThis;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -407,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E58A01C21DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "DoThis" */ = {
+		E58A01C21DF6025500BDF0DB /* Build configuration list for PBXNativeTarget "DoThis-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E58A01C31DF6025500BDF0DB /* Debug */,
@@ -424,6 +551,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E971A2431EABB70200E1F77C /* Build configuration list for PBXNativeTarget "DoThis-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E971A2441EABB70200E1F77C /* Debug */,
+				E971A2451EABB70200E1F77C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E58A01AD1DF6025500BDF0DB"
-               BuildableName = "DoThis.framework"
-               BlueprintName = "DoThis-iOS"
+               BlueprintIdentifier = "E971A23D1EABB70200E1F77C"
+               BuildableName = "DoThis-macOS.framework"
+               BlueprintName = "DoThis-macOS"
                ReferencedContainer = "container:DoThis.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E58A01B61DF6025500BDF0DB"
-               BuildableName = "DoTests.xctest"
-               BlueprintName = "DoTests"
-               ReferencedContainer = "container:DoThis.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E58A01AD1DF6025500BDF0DB"
-            BuildableName = "DoThis.framework"
-            BlueprintName = "DoThis-iOS"
-            ReferencedContainer = "container:DoThis.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E58A01AD1DF6025500BDF0DB"
-            BuildableName = "DoThis.framework"
-            BlueprintName = "DoThis-iOS"
+            BlueprintIdentifier = "E971A23D1EABB70200E1F77C"
+            BuildableName = "DoThis-macOS.framework"
+            BlueprintName = "DoThis-macOS"
             ReferencedContainer = "container:DoThis.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E58A01AD1DF6025500BDF0DB"
-            BuildableName = "DoThis.framework"
-            BlueprintName = "DoThis-iOS"
+            BlueprintIdentifier = "E971A23D1EABB70200E1F77C"
+            BuildableName = "DoThis-macOS.framework"
+            BlueprintName = "DoThis-macOS"
             ReferencedContainer = "container:DoThis.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
