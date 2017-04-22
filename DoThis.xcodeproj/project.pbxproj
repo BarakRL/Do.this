@@ -10,7 +10,6 @@
 		E58A01B81DF6025500BDF0DB /* DoThis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58A01AE1DF6025500BDF0DB /* DoThis.framework */; };
 		E58A01BD1DF6025500BDF0DB /* DoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58A01BC1DF6025500BDF0DB /* DoTests.swift */; };
 		E971A2341EABB6CA00E1F77C /* DoThis-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E971A2321EABB6CA00E1F77C /* DoThis-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E971A2351EABB6CA00E1F77C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E971A2331EABB6CA00E1F77C /* Info.plist */; };
 		E971A2381EABB6D900E1F77C /* DoThis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E971A2371EABB6D900E1F77C /* DoThis.swift */; };
 		E971A2421EABB70200E1F77C /* DoThis-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E971A2401EABB70200E1F77C /* DoThis-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E971A2461EABB73F00E1F77C /* DoThis.swift in Sources */ = {isa = PBXBuildFile; fileRef = E971A2371EABB6D900E1F77C /* DoThis.swift */; };
@@ -252,7 +251,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E971A2351EABB6CA00E1F77C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +557,7 @@
 				E971A2451EABB70200E1F77C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
