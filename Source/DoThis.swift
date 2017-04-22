@@ -120,7 +120,7 @@ public class DoThis {
         
         let queue = queue ?? self.onQueue
         
-        let next = DoThis(name: name, on: queue, after: delay, index: self.index + 1, do: this)
+        let next = DoThis(name: name, on: queue, checkStop: checkStop, after: delay, index: self.index + 1, do: this)
         self.next = next
         
         return next
