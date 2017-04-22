@@ -78,18 +78,19 @@ public class DoThis {
         else if let next = self.next {
             
             if next.delay > 0 {
-                next.onQueue.asyncAfter(deadline: .now() + next.delay, execute: {
-                    if !next.checkStop || !finished {
+                if !next.checkStop || !finished {
+                    next.onQueue.asyncAfter(deadline: .now() + next.delay, execute: {
                         next.previousResult = result
                         next.doThis(next)
-                    }
-                })
+                    })
+                }
             }
             else {
-                next.onQueue.async {
-                    if !next.checkStop || !finished {
+                if !next.checkStop || !finished {
+                    next.onQueue.async {
                         next.previousResult = result
                         next.doThis(next)
+                        
                     }
                 }
             }
