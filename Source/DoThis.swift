@@ -43,16 +43,18 @@ public class DoThis {
     
     public fileprivate(set) var error: Error?
     public fileprivate(set) var previousResult: Any?
+    fileprivate var checkStop: Bool = false
     fileprivate var next: DoThis?
 
     fileprivate var catchThis: ThisClosure?
     fileprivate var finallyThis: ThisClosure?
     
-    fileprivate init(name: String?, on queue: DispatchQueue, after delay: TimeInterval, index: Int, do this: @escaping ThisClosure) {
+    fileprivate init(name: String?, on queue: DispatchQueue, checkStop: Bool = false, after delay: TimeInterval, index: Int, do this: @escaping ThisClosure) {
         self.name = name
         self.index = index
         self.onQueue = queue
         self.delay = delay
+        self.checkStop = checkStop
         self.doThis = this
     }
     
@@ -62,7 +64,7 @@ public class DoThis {
     /// - Parameters:
     ///   - error: error if any, will continue to the catch and finally closures
     ///   - result: result (optional) passed to the next then or finally closures
-    public func done(result: Any? = nil, error: Error? = nil) {
+    public func done(result: Any? = nil, finished: Bool = false, error: Error? = nil) {
         
         //if error
         if let error = error {
@@ -76,15 +78,20 @@ public class DoThis {
         else if let next = self.next {
             
             if next.delay > 0 {
-                next.onQueue.asyncAfter(deadline: .now() + next.delay, execute: {
-                    next.previousResult = result
-                    next.doThis(next)
-                })
+                if !next.checkStop || !finished {
+                    next.onQueue.asyncAfter(deadline: .now() + next.delay, execute: {
+                        next.previousResult = result
+                        next.doThis(next)
+                    })
+                }
             }
             else {
-                next.onQueue.async {
-                    next.previousResult = result
-                    next.doThis(next)
+                if !next.checkStop || !finished {
+                    next.onQueue.async {
+                        next.previousResult = result
+                        next.doThis(next)
+                        
+                    }
                 }
             }
         }
@@ -96,13 +103,24 @@ public class DoThis {
     
     public func then(name: String? = nil, on queue: DispatchQueue? = nil, after delay: TimeInterval = 0, do this: @escaping ThisClosure) -> DoThis {
         
+        return createNext(name: name, on: queue, after: delay, do: this)
+    }
+    
+    @discardableResult
+    public func orThis(name: String? = nil, on queue: DispatchQueue? = nil, after delay: TimeInterval = 0, do this: @escaping ThisClosure) -> DoThis {
+        
+        return createNext(name: name, on: queue, checkStop: true, after: delay, do: this)
+    }
+    
+    private func createNext(name: String? = nil, on queue: DispatchQueue? = nil, checkStop: Bool = false, after delay: TimeInterval = 0, do this: @escaping ThisClosure) -> DoThis {
+        
         guard self.catchThis == nil else {
             fatalError("Can't call next() after catch()")
         }
         
         let queue = queue ?? self.onQueue
         
-        let next = DoThis(name: name, on: queue, after: delay, index: self.index + 1, do: this)
+        let next = DoThis(name: name, on: queue, checkStop: checkStop, after: delay, index: self.index + 1, do: this)
         self.next = next
         
         return next
