@@ -14,20 +14,22 @@ Do.this { this in
     
     //do more stuff
 	
-	//every this has an index property and an optional name property
-	//which can be useful for debugging and error handling
-	print("this: \(this.name ?? String(this.index))")
+    //every this has an index property and an optional name property
+    //which can be useful for debugging and error handling
+    print("this: \(this.name ?? String(this.index))")
 		
     //you can also access the previous result if needed:
     print("previousResult: \(this.previousResult)")
+    //or just the previous value:
+    print("previousResult: \(this.previousValue)")
 	
-	//if you're doing anything async, don't forget to call done()	
-	DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+    //if you're doing anything async, don't forget to call done()	
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
      	
-		//async stuff
+        //async stuff
 		
-	    //btw, result is optional
-	    this.succeeded()
+        //btw, result value is optional
+        this.succeeded()
     }    
     
 }.then (after: 2) { this in
