@@ -10,68 +10,69 @@ import XCTest
 @testable import DoThis
 
 class DoTests: XCTestCase {
+  
+  override func setUp() {
+    super.setUp()
+  }
+  
+  override func tearDown() {
+    super.tearDown()
+  }
+  
+  func testExample() {
     
-    override func setUp() {
-        super.setUp()
+    let exp = expectation(description: "test")
+    
+    Do.this { this in
+      
+      print("Do.this")
+      this.succeeded()
+      
+    }.then (name: "result step", after: 2) { this in
+      
+      print("previousResult: \(String(describing: this.previousResult))")
+      this.succeeded(this.name)
+      
+    }.then { this in
+      
+      print("previousResult: \(String(describing: this.previousResult))")
+      this.succeeded("\(this.index) - before error")
+      
+    }.then { this in
+      
+      print("previousResult: \(String(describing: this.previousResult))")
+      //this.failed(NSError(domain: "error4", code: 4, userInfo: nil))
+      this.succeeded("boop")
+      
+    }.then (on: DispatchQueue.global(qos: .background)) { this in
+      
+      print("previousResult: \(String(describing: this.previousResult)) on: \(DispatchQueue.currentLabel ?? "")")
+      this.done(.success(this.index))
+      
+    }.then (on: .main) { this in
+      
+      print("previousResult: \(String(describing: this.previousResult)) on: \(DispatchQueue.currentLabel ?? "")")
+      this.done(.success(this.index))
+      
+    }.catch { error, this in
+      
+      print("catched error: \(String(describing: error)) from \(this.name ?? String(this.index))")
+      
+    }.finally { this in
+      
+      print("finally (previousResult: \(String(describing: this.previousResult)))")
+      exp.fulfill()
     }
     
-    override func tearDown() {
-        super.tearDown()
+    self.waitForExpectations(timeout: 25.0) { (error) -> Void in
+      XCTAssert(error == nil, "test took too long, error: \(String(describing: error))")
     }
-    
-    func testExample() {
-        
-        let exp = expectation(description: "test")
-        
-        Do.this { this in
-            
-            print("Do.this")
-            this.done()
-            
-        }.then (name: "result step", after: 2) { this in
-            
-            print("previousResult: \(this.previousResult)")
-            this.done(result: this.name)
-            
-        }.then { this in
-            
-            print("previousResult: \(this.previousResult)")
-            this.done(result: this.index, error: nil)
-            
-        }.then { this in
-            
-            print("previousResult: \(this.previousResult)")
-            let error: Error? = nil //NSError(domain: "error4", code: 4, userInfo: nil)
-            this.done(result: this.index, error: error)
-            
-        }.then (on: DispatchQueue.global(qos: .background)) { this in
-            
-            print("previousResult: \(this.previousResult) on: \(DispatchQueue.currentLabel)")
-            this.done(result: this.index)
-            
-        }.then (on: .main) { this in
-            
-            print("previousResult: \(this.previousResult) on: \(DispatchQueue.currentLabel)")
-            this.done(result: this.index)
-            
-        }.catch { this in
-            
-            print("catched error: \(this.error) from \(this.name ?? String(this.index))")
-            
-        }.finally { this in
-            
-            print("finally (previousResult: \(this.previousResult))")
-            exp.fulfill()
-        }
-        
-        self.waitForExpectations(timeout: 25.0) { (error) -> Void in
-            XCTAssert(error == nil, "test took too long, error: \(error)")
-        }
-    }
+  }
 }
 
 extension DispatchQueue {
-    class var currentLabel: String? {
-        return String(validatingUTF8: __dispatch_queue_get_label(nil))
-    }
+  class var currentLabel: String? {
+    let name = __dispatch_queue_get_label(nil)
+    return String(cString: name, encoding: .utf8)
+  }
 }
