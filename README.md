@@ -1,6 +1,6 @@
 # Do.this
 
-Do.this is a Swift 3 quick async helper inspired by node.js Async
+Do.this is a Swift 5 quick async helper inspired by node.js Async
 
 ### Usage:
 
@@ -8,7 +8,7 @@ Do.this is a Swift 3 quick async helper inspired by node.js Async
 Do.this { this in
     
     //do stuff
-    this.done(result: someResult)
+    this.succeeded(someResult)
     
 }.then (name: "result step") { this in
     
@@ -27,34 +27,35 @@ Do.this { this in
 		//async stuff
 		
 	    //btw, result is optional
-	    this.done()
+	    this.succeeded()
     }    
     
 }.then (after: 2) { this in
 
     //you can also add a delay directly
-    this.done()
+    this.succeeded()
 
 }.then { this in
     
-    //if an error happened, pass it in the done callback (you can still pass a result)
-    //if you pass an error, the chain will break (see catch and finally below)
+    //if an error happened the chain will break (see catch and finally below)
     let error = SomeError.bummer
-    this.done(result: someResult, error: error)
+    this.failed(error)
     
 }.then (on: DispatchQueue.global(qos: .background)) { this in
     
     //this will execute in a background queue
     //(+you can combine this with a delay)
     print("on: \(DispatchQueue.currentLabel)")
-    this.done(result: someResult)
+    //and you can use swift Result objects
+    let result: Result<String, Error> = .success("cool!")
+    this.done(result)
     
 }.then (on: .main) { this in
     
     //this will be execute in the main queue
     //if you dont specify a queue, this will be executed on the current (last used) queue
     print("on: \(DispatchQueue.currentLabel)")
-    this.done(result: someResult)
+    this.succeeded(someResult)
     
 }.catch { this in
     
@@ -71,7 +72,7 @@ Do.this { this in
 
 ## Requirements
 
-Swift 3
+Swift 5
 
 ## Installation
 
