@@ -61,12 +61,16 @@ public class DoThis {
     self.delay = delay
     self.doThis = this
   }
-  
-  func succeeded(_ value: Any? = nil) {
+    
+  /// This succeeded
+  /// - Parameter value: optional value
+  public func succeeded(_ value: Any? = nil) {
     self.done(.success(value))
   }
-  
-  func failed(_ error: Error) {
+    
+  /// This failed
+  /// - Parameter error: error
+  public func failed(_ error: Error) {
     self.done(.failure(error))
   }
   

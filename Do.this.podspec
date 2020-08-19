@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Do.this"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "a quick async helper for Swift"
   s.description  = "Do.this is a Swift 5 quick async helper inspired by node.js Async"
 
