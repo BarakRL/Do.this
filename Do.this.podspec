@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
 
   s.author    = "Barak Harel"
   s.platform     = :ios, "11.0"
+  s.swift_versions = ['5.0']
 
   s.source       = { :git => "https://github.com/BarakRL/Do.this.git", :tag => "#{s.version}" }
   s.source_files  = "Classes", "DoThis/**/*.{swift}"
